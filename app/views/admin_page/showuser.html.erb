@@ -1,0 +1,15 @@
+<h2>
+   
+    Utilizatori platforma
+</h2>
+ <ul>
+<% @user.each do |user| %>
+  <li>
+   
+    <%= user.email %> 
+  </li>
+<% end %>
+</ul>
+
+<h2> 
+Numarul total de utilizatori : <%= @user.count %></h2>

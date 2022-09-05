@@ -1,0 +1,28 @@
+<h2>Modifica parola</h2>
+
+
+
+<%= form_with model: Current.user, local: true, url: edit_password_path do |form| %>
+    <% if form.object.errors.any? %>
+    <div class="alert alert-danger">
+        <% form.object.errors.full_messages.each do |message| %>
+        <div><%= message %> </div>
+        <% end %>
+    </div>
+    <% end %>
+
+
+<div class="mb-3">
+    <%= form.label :Parola %>
+    <%= form.password_field :password, class: "form-control", placeholder: "Parola"%>
+</div>
+
+<div class="mb-3">
+    <%= form.label :Confirma_parola %>
+    <%= form.password_field :password_confirmation, class: "form-control", placeholder: "Confirmare parola"%>
+</div>
+
+<div class="mb-3">
+    <%= form.submit "Modifica parola", class: "btn btn-dark" %>
+</div>
+<% end %>

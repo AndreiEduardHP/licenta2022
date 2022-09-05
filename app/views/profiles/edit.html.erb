@@ -1,0 +1,43 @@
+
+<div class="profilespageback"></div>
+<div class="profiles">
+<h2 style=" text-align: center;">Modifica profil</h2>
+
+<div style="width: 200px; height: auto; display:flex; ">
+   <h2>Avatar:</h2>  <%= image_tag(Current.user.image,style:'width:100%; border-radius: 5%;') if Current.user.image.attached? %>
+   <%= image_tag("profile/omnegruunknown.png", size: '100x100' ,alt: "logo") if !Current.user.image.attached? %>
+</div>
+
+<%= form_with model: Current.user, local: true, url: profiles_edit_path do |form| %>
+    <% if form.object.errors.any? %>
+    <div class="alert alert-danger">
+        <% form.object.errors.full_messages.each do |message| %>
+        <div><%= message %> </div>
+        <% end %>
+    </div>
+    <% end %>
+
+
+<div class="mb-3">
+    <strong> <%= form.label :Numar_telefon %> </strong>
+    <%= form.text_field :phone_number, class: "form-control"%>
+</div>
+<div class="mb-3">
+    <strong><%= form.label :Nume %> </strong>
+    <%= form.text_field :first_name, class: "form-control"%>
+</div>
+<div class="mb-3">
+    <strong> <%= form.label :Prenume %></strong>
+    <%= form.text_field :last_name, class: "form-control"%>
+</div>
+
+<div class="mb-3">
+    <strong><%= form.label :Avatar %> </strong>
+    <%= form.file_field :image, class: "form-control"%>
+</div>
+
+<div class="mb-3 text-center">
+    <%= form.submit "Modifica profil", class: "btn btn-dark" %>
+</div>
+<% end %>
+</div>

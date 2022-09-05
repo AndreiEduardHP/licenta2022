@@ -1,0 +1,44 @@
+
+  
+
+  
+     <table class="table table-striped">
+         
+         
+         
+         
+         <thead>
+          <tr>
+            <th>ID</th>
+            <th>email</th>
+            <th>locatie</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+           
+          </tr>
+         </thead>
+         <tbody>
+        <% @reservations.each do |reservation| %>
+          <tr>
+            <td><%= reservation.id %></td>
+            <td><%= reservation.user.email %></td>
+            <td><%= reservation.trip.locatie %></td>
+             <td><%= reservation.start_date %></td>
+              <td><%= reservation.end_date %></td>
+            
+            
+            
+         
+          </tr>
+         <% end %>
+        </tbody>
+        </table>
+
+
+
+    
+ 
+
+ 
+ 
+       

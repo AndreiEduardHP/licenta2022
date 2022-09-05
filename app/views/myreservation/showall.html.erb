@@ -1,0 +1,51 @@
+
+   <div class="reservationspageback"></div>
+   
+   <table class="table table-dark">
+<% @reservations.each do |res| %>
+  
+
+  <thead>
+    <tr>
+     
+      <th scope="col">Email</th>
+      <th scope="col">Locatie</th>
+      <th scope="col">Numar rezervare</th>
+       <th scope="col">Sosire</th>
+        <th scope="col">Plecare</th>
+        <th scope="col">Numar nopti</th>
+        <th scope="col">Pret Total</th>
+        <th scope="col">Client</th>
+        
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+     
+      <td> <%= res.user.email %></td>
+      <td> <%= res.trip.locatie %></td>
+      <td> <%= res.id %></td>
+       <td> <%= res.start_date %></td>
+        <td> <%= res.end_date %></td>
+        <td> <%= res.nrzile %></td>
+        <td> <%= res.totalprice %></td>
+        <td> <%= res.user.last_name %>  <%= res.user.first_name %></td>
+        
+    </tr>
+  
+   
+  </tbody>
+
+      
+      
+       
+   
+<% end %>
+
+</table>
+
+ <div class="count">
+   <h2>Numar total de rezervari: <%= @count %> </h2> 
+ </div>
+ 

@@ -1,0 +1,100 @@
+<div class="tripspageback"></div>
+<% javascript_include_tag %>
+<div style="display:flex; justify-content:center;">
+    
+    <div class="d-flex flex-column" style="background-color:rgba(255, 255, 255, 0.8); border-radius:3.5%"> 
+        <div> 
+        <p>
+         <h2> <strong>Locatie:</strong></h2>
+          <h2><%= @trip.locatie %></h2>
+        </p>
+        </div>
+        
+        <div> 
+        <p>
+         <h2>  <strong>Descriere:</strong> </h2>
+         <h2> <%= @trip.descriere %> </h2> 
+        </p>
+        <p>
+            </div>
+
+ <h2> <strong>Locatie:</strong> </h2> 
+  
+  <div style="width: 400px; height: auto; display:flex; ">
+   <%= image_tag(@trip.avatar, style:'width:100%; border-radius: 5%;') if @trip.images.attached?%>
+   <%= image_tag("locatie/location-pin.png", size: '200x200' ,alt: "logo") if !@trip.images.attached? %>
+</div>
+
+</p>
+</div>
+
+
+
+<br/>
+
+<div class="d-flex flex-wrap">
+  <% (0...@trip.images.count).each do |image| %>
+
+    
+<div class="card" style="width: 18rem;">
+  <%= image_tag(@trip.images[image] ) %>
+ 
+</div>
+<% end %>
+</div>
+
+
+
+
+
+<%= form_with model: @reservation , local: true, url: save_trip_path  do |f| %>
+
+         <%= f.text_field :user_id, :value => Current.user.id  , type: :hidden %>
+         
+         <%= f.text_field :trip_id, :value => @trip.id , type: :hidden  %>
+        
+        
+       <strong> <%= f.label :Data_sosire,class:"form-control" %>  </strong>
+        <%= f.text_field :start_date ,placeholder: 'select',
+     data: {
+        controller: "flatpickr",
+        flatpickr_alt_format: t("date.formats.long"),
+        flatpickr_alt_input: true,
+        
+        flatpickr_min_date: Time.zone.now,
+      }
+      
+        %>
+       
+       <strong>  <%= f.label :Data_plecare,class:"form-control" %> </strong>
+        <%= f.text_field :end_date ,placeholder: 'select', input_html:{ id: "end_date"} %>
+    
+    <div style="visibility: hidden;"> <H2> asus</H2></div>
+     
+       <strong>  <%= f.label :Numar_nopti,class:"form-control" %> </strong>
+        <%= f.text_field :nrzile , value: "zile" ,:id=>"numarzile" %>
+    
+    <div style="visibility: hidden;"> <H2> asus</H2></div>
+    
+         <strong> <%= f.label :Pret_per_noapte,class:"form-control" %> </strong>
+        <%= f.text_field :price , :value => @trip.price ,:id=>"ediprice" %>
+        
+        
+        <div style="visibility: hidden;"> <H2> asus</H2></div>
+        
+       <strong>  <%= f.label :Pret_total,class:"form-control" %> </strong>
+        <%= f.text_field :totalprice , :value => @trip.price ,:id=>"edipricetotal" %>
+     
+      <div style="visibility: hidden;"> <H2> asus</H2></div>
+     
+    <%= f.submit "Confirma" , class: "btn btn-dark form-control" %>
+    
+    <%= link_to 'Inapoi', trips_path ,class: "btn btn-secondary form-control "%>
+<% end %>
+
+
+
+
+
+
+

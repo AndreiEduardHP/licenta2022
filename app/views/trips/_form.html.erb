@@ -1,0 +1,48 @@
+<%= form_with(model: trip, local: true) do |form| %>
+  <% if trip.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(trip.errors.count, "error") %> prohibited this trip from being saved:</h2>
+
+      <ul>
+        <% trip.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<div class="mb-3" style="visibility:hidden;">
+    <%= form.label :Disponibil %>
+    <%= form.text_field :disponibil, value: true, class: "form-control", placeholder: "Locatie" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :Locatie %>
+    <%= form.text_field :locatie, class: "form-control", placeholder: "Locatie" %>
+  </div>
+  
+   <div class="mb-3">
+    <%= form.label :Pret %>
+    <%= form.text_field :price, class: "form-control", placeholder: "Pret" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :Descriere %>
+    <%= form.text_area :descriere, class: "form-control", placeholder: "Descriere" %>
+  </div> 
+  
+   <div class="mb-3">
+    <%= form.label :Avatar %>
+    <%= form.file_field :avatar, class: "form-control", placeholder: "Avatar" %>
+  </div> 
+
+   <div class="mb-3">
+    <%= form.label :Imagini %>
+    <%= form.file_field :images,multiple: true, class: "form-control", placeholder: "Imagini" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.submit "Confirma" , class: "btn btn-secondary" %>
+  </div>
+<% end %>

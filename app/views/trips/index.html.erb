@@ -1,0 +1,63 @@
+<div class="tripspageback"></div>
+<div class="trips"> 
+<h1 class="text-center">Calatorii</h1>
+
+<table class="table ">
+  <thead class="thead-dark">
+    <tr>
+      <th>Locatie</th>
+      <th>Descriere</th>
+      <th style="width:250px;">Imagini</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  
+  <% if Current.user.admin == true %>
+    <tbody>
+       
+      <% @trips.each do |trip| %>
+        <% if trip.disponibil == true %>
+          <tr>
+            <td><strong><%= trip.locatie %> </strong></td>
+            <td><%= trip.descriere %></td>
+            <td><% if trip.images.attached? %>
+              <%= image_tag(trip.avatar, style:'width:100%; border-radius: 5%;')  %>
+              <% else %>
+             <%= image_tag("locatie/location-pin.png", size: '200x200' ,alt: "logo") %>
+             <% end %>
+             </td>
+            <td class="text-center"><%= link_to 'Selecteaza', trip , class: "btn btn-secondary "%></td>
+           
+            <td class="text-center"><%= link_to 'Modifica', edit_trip_path(trip) ,class: "btn btn-secondary " %></td>
+            <td class="text-center"><%= link_to 'Sterge', trip, method: :delete, data: { confirm: 'Are you sure?' } ,class: "btn btn-secondary "%></td>
+            
+          </tr>
+        <% end %>
+      <% end %>
+      <%= link_to 'Adauga calatorie', new_trip_path ,class:"btn btn-secondary"%>
+    </tbody>
+  <% else %>
+   <tbody>
+       
+      <% @trips.each do |trip| %>
+       <% if trip.disponibil == true %>
+       <tr>
+          <td><%= trip.locatie %></td>
+          <td><%= trip.descriere %></td>
+           <td><%= image_tag(trip.avatar, style:'width:100%; border-radius: 5%;') %></td>
+         
+          <td class="text-center"><%= link_to 'Select', trip , class: "btn btn-secondary "%></td>
+         
+        
+          
+        </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+    <% end %>
+</table>
+
+<br>
+
+  
+</div>

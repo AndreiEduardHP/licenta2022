@@ -1,0 +1,20 @@
+// Place all the styles related to the reservation controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.reservationspageback{
+    
+    z-index:-1;
+  position:fixed;
+  top:0px;
+  right:0px;
+  bottom:0px;
+  left:0px;
+  background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('1050172.jpg');
+  
+  background-position: center ;
+  background-repeat: no-repeat ;
+  background-size: cover ;
+}
+

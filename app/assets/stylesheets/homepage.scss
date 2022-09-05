@@ -1,0 +1,98 @@
+// Place all the styles related to the homepage controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+
+@keyframes line-anim{
+    to{
+        stroke-dashoffset: 0;
+       
+    }
+}
+
+.backg{
+    z-index:-1;
+  position:fixed;
+  top:0px;
+  right:0px;
+  bottom:0px;
+  left:0px;
+  background-image: url('1050172.jpg') ;
+  
+  background-position: center ;
+  background-repeat: no-repeat ;
+  background-size: cover ;
+}
+
+
+
+
+.flex-container {
+   height:auto;
+  display: flex ;
+  bottom:0px;
+    align-items: flex-end;
+}
+
+.flex-items{
+    padding-right:23px;
+    transition: all 0.75s ease-in-out;
+    
+}
+.flex-items:hover{
+    transform: translateY(-35px);
+    
+}
+
+.text{
+    padding-top:5%;
+   font: italic 5em "Fira Sans", serif;
+   color:white;
+ text-shadow: -10px 2px 13px rgba(8,2,8,0.84);
+  
+     
+}
+
+.sectia2{
+    padding-top:25%;
+}
+
+.Svg{
+    padding-top:10%;
+}
+.btn{
+    width:155px;
+    
+}
+.butonedi{
+    padding-top:3%;
+    
+    
+}
+  
+
+.fade-in{
+    animation: 3s ease 0s normal forwards 1 fadein;
+}
+
+   
+
+
+@keyframes fadein{
+    0% { opacity:0; }
+    66% { opacity:0; }
+    100% { opacity:1; }
+}
+
+
+.tot{
+    
+}
